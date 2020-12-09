@@ -1,0 +1,13 @@
+{% extends 'base_profile.html' %}
+
+{% block header %}
+  <h1>{% block title %}Your data{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="firstname">First name</label>
+    <input name="firstname" id="firstname" value="{{ request.form['firstname'] }}">
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

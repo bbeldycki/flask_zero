@@ -1,0 +1,43 @@
+{% extends 'base_profile.html' %}
+
+{% block header %}
+  <h1>{% block title %}Your Profile{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('auth.edit') }}">Edit profile</a>
+  {% endif %}
+{% endblock %}
+
+
+{% block content %}
+  <div>
+    <h1> Username: </h1>
+    <h2>{{ g.user['username'] }}</h2>
+  </div>
+  <hr>
+  <div>
+    <h1> First name: </h1>
+    {% if g.user['firstname'] == None %}
+      <h2> </h2>
+    {% else %}
+      <h2>{{ g.user['firstname'] }}</h2>
+    {% endif %}
+  </div>
+  <hr>
+  <div>
+    <h1> Second name: </h1>
+    {% if g.user['secondname'] == None %}
+      <h2> </h2>
+    {% else %}
+      <h2>{{ g.user['secondname'] }}</h2>
+    {% endif %}
+  </div>
+  <hr>
+  <div>
+    <h1> Phone number: </h1>
+    {% if g.user['phone_number'] == None %}
+      <h2> </h2>
+    {% else %}
+      <h2>{{ g.user['phone_number'] }}</h2>
+    {% endif %}
+  </div>
+{% endblock %}
